@@ -4,7 +4,7 @@
 
 ;;; THEME ;;;
 ;; (setq doom-theme 'catppuccin)      ; set theme
-(setq doom-theme 'doom-tokyo-night)      ; set theme
+(setq doom-theme 'doom-nord)      ; set theme
 
 ;; Catppuccin flavour
 ;; (setq catppuccin-flavor 'mocha) ; or 'latte, 'macchiato, or 'mocha

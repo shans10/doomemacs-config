@@ -7,15 +7,35 @@
 (map! :n "gr" #'lsp-find-references   ; LSP show hover documentation
       :n "gh" #'lsp-ui-doc-glance)    ; LSP show hover documentation
 
-;; Select all text in file
+;; Buffers
+; Select all text in file
 (map! :leader
       :desc "Select all"
       "b a" #'mark-whole-buffer)
-
-;; Kill current buffer without prompt
+; Kill current buffer without prompt
 (map! :leader
       :desc "Kill this buffer"
       "b D" #'kill-this-buffer)
+
+;; Files
+; Find file recursively in cwd
+;; (map! :leader
+;;       :desc "Find files in CWD"
+;;       "f C-d" #'find-file-in-current-directory)
+; Find file recursively in project
+;; (map! :leader
+;;       :desc "Find files in project"
+;;       "f C-p" #'find-file-in-project)
+; Affe find file recursively
+(map! :leader
+      :desc "Affe find file"
+      "f a" #'affe-find)
+
+;; Search
+; Affe grep
+(map! :leader
+      :desc "Affe grep"
+      "s a" #'affe-grep)
 
 ;; Neotree
 (map! :leader

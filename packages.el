@@ -60,3 +60,9 @@
 
 ;; Zoom active splits
 (package! zoom-window)
+
+;; Asynchronous fuzzy finder
+(package! affe)
+
+;; Find file recursively in current directory
+;; (package! find-file-in-project)
