@@ -2,8 +2,8 @@
 ; LSP show diagnostics
 (map! :leader
       (:prefix ("c" . "code")
-      :desc "Show lsp diagnostics"
-      "X" #'consult-lsp-diagnostics))
+       :desc "Show lsp diagnostics"
+       "X" #'consult-lsp-diagnostics))
 (map! :n "gr" #'lsp-find-references   ; LSP show hover documentation
       :n "gh" #'lsp-ui-doc-glance)    ; LSP show hover documentation
 
@@ -54,7 +54,7 @@
 ;; Zoom active window
 (map! :leader
       (:desc "Zoom window"
-       "w z" #'zoom-window-zoom))
+             "w z" #'zoom-window-zoom))
 
 ;; Dired
 ; Evil mode

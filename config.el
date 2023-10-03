@@ -3,8 +3,16 @@
 (setq confirm-kill-emacs nil)                ; disable quit prompt
 
 ;;; THEME ;;;
-;; (setq doom-theme 'catppuccin)      ; set theme
-(setq doom-theme 'doom-nord)      ; set theme
+(setq doom-theme 'adwaita-dark)      ; set theme
+;; (setq doom-theme 'doom-nord)      ; set theme
+
+;; Settings for adwaita-dark theme
+(custom-theme-set-faces! 'adwaita-dark
+  '(font-lock-keyword-face :foreground "#ffa348")
+  '(show-paren-match :foreground "#ffa348" :weight ultra-bold)
+  '(region :background "#21364A")
+  ;; '(mode-line :background "#303030" :foreground "fg" :box (:line-width 3 :color "#303030")))
+  '(mode-line :background "#303030"))
 
 ;; Catppuccin flavour
 ;; (setq catppuccin-flavor 'mocha) ; or 'latte, 'macchiato, or 'mocha
@@ -18,9 +26,9 @@
 (custom-set-faces!
   ;; '(font-lock-keyword-face :slant italic :weight medium)
   '(font-lock-comment-face :slant italic :weight medium))
-  ;; '(italic :slant italic :weight medium))
-  ;; '(tree-sitter-hl-face:property :slant italic :weight medium)
-  ;; '(line-number-current-line :slant italic :weight medium))
+;; '(italic :slant italic :weight medium))
+;; '(tree-sitter-hl-face:property :slant italic :weight medium)
+;; '(line-number-current-line :slant italic :weight medium))
 
 ;;; WINDOW ;;;
 ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))   ; open emacs maximized
@@ -35,9 +43,9 @@
 (add-to-list 'default-frame-alist '(alpha-background . 97)) ; for all new frames henceforth
 
 ;; Disable window decoation if using graphical session
-(if (display-graphic-p)
-  (setq default-frame-alist '((undecorated . t))) ; for current frame
-  (add-to-list 'default-frame-alist '(undecorated . t))) ; for all new frames henceforth
+;; (if (display-graphic-p)
+;;   (setq default-frame-alist '((undecorated . t))) ; for current frame
+;;   (add-to-list 'default-frame-alist '(undecorated . t))) ; for all new frames henceforth
 ;; (add-to-list 'default-frame-alist '(drag-internal-border . 1))    ; enable drag and resize for internal borders
 ;; (add-to-list 'default-frame-alist '(internal-border-width . 1))   ; set internal border size
 
@@ -58,7 +66,7 @@
     (if (and prev next
              (string-match-p "[[({]" (string prev))
              (string-match-p "[])}]" (string next)))
-      (save-excursion (self-insert-command 1)))))
+        (save-excursion (self-insert-command 1)))))
 
 (defun my/c-mode-delete-space (arg &optional killp)
   (interactive "*p\nP")
@@ -68,7 +76,7 @@
     (if (and prev next pprev
              (char-equal prev ?\s) (char-equal next ?\s)
              (string-match "[[({]" (string pprev)))
-      (delete-char 1))
+        (delete-char 1))
     (backward-delete-char-untabify arg killp)))
 
 (add-hook 'c-mode-common-hook
@@ -84,7 +92,7 @@
 ;;; FLYCHECK ;;;
 ;; Check syntax on idle
 (after! flycheck
-        (setq flycheck-check-syntax-automatically '(idle-change)))
+  (setq flycheck-check-syntax-automatically '(idle-change)))
 
 (setq +vc-gutter-default-style nil)                    ; Disable default fringe styling
 (setq-default flycheck-indication-mode 'left-fringe)   ; Move flycheck to left margin
@@ -108,7 +116,8 @@
 ;;; MODELINE ;;;
 (setq doom-modeline-major-mode-icon t)            ; show major mode icon in doom modeline(filetype icon)
 (setq lsp-modeline-code-actions-enable nil)       ; disable code actions in doom modeline
-(setq doom-modeline-modal-icon nil)               ; disable mode icon and show mode text
+;; (setq doom-modeline-modal-icon nil)               ; disable mode icon and show mode text
+;; (setq doom-modeline-indent-info t)                ; show indent level
 
 ;;; CENTAUR TABS ;;;
 ;; (setq centaur-tabs-set-bar 'left               ; set indicator style
@@ -159,14 +168,21 @@
 ;;; TERMINAL CURSOR ;;;
 ;; Change cursor in terminal emacs based on mode
 (unless (display-graphic-p)
-        (require 'evil-terminal-cursor-changer)
-        (evil-terminal-cursor-changer-activate)) ; or (etcc-on)
+  (require 'evil-terminal-cursor-changer)
+  (evil-terminal-cursor-changer-activate)) ; or (etcc-on)
 
 ;;; ZOOM WINDOW ;;;
 (setq zoom-window-mode-line-color nil) ; disable modeline color
 
 ;;; MOOD-LINE ;;;
 ;; (mood-line-mode) ; enable on startup
+
+;;; ADWAITA-DARK ;;;
+(eval-after-load 'neotree #'adwaita-dark-theme-neotree-configuration-enable)
+(adwaita-dark-theme-arrow-fringe-bmp-enable)
+(eval-after-load 'diff-hl #'adwaita-dark-theme-diff-hl-fringe-bmp-enable)
+(eval-after-load 'flycheck #'adwaita-dark-theme-flycheck-fringe-bmp-enable)
+(eval-after-load 'flymake #'adwaita-dark-theme-flymake-fringe-bmp-enable)
 
 ;;; LOAD USER DEFINED KEYBINDINGS ;;;
 (load! "keybindings")

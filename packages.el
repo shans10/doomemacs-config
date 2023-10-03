@@ -56,7 +56,7 @@
 (package! evil-terminal-cursor-changer)
 
 ;; Catppuccin theme
-(package! catppuccin-theme)
+;; (package! catppuccin-theme)
 
 ;; Zoom active splits
 (package! zoom-window)
@@ -66,3 +66,6 @@
 
 ;; Find file recursively in current directory
 ;; (package! find-file-in-project)
+
+;; Adwaita dark theme
+(package! adwaita-dark-theme)
