@@ -3,16 +3,16 @@
 (setq confirm-kill-emacs nil)                ; disable quit prompt
 
 ;;; THEME ;;;
-(setq doom-theme 'adwaita-dark)      ; set theme
-;; (setq doom-theme 'doom-nord)      ; set theme
+;; (setq doom-theme 'catppuccin)        ; set external theme
+(setq doom-theme 'doom-dracula)      ; set doom theme
 
-;; Settings for adwaita-dark theme
-(custom-theme-set-faces! 'adwaita-dark
-  '(font-lock-keyword-face :foreground "#ffa348")
-  '(show-paren-match :foreground "#ffa348" :weight ultra-bold)
-  '(region :background "#21364A")
-  ;; '(mode-line :background "#303030" :foreground "fg" :box (:line-width 3 :color "#303030")))
-  '(mode-line :background "#303030"))
+;; Custom styles for adwaita-dark theme
+;; (custom-theme-set-faces! 'adwaita-dark
+;;   '(font-lock-keyword-face :foreground "#ffa348")
+;;   '(show-paren-match :foreground "#ffa348" :weight ultra-bold)
+;;   '(region :background "#21364A")
+;;   ;; '(mode-line :background "#303030" :foreground "fg" :box (:line-width 3 :color "#303030")))
+;;   '(mode-line :background "#303030"))
 
 ;; Catppuccin flavour
 ;; (setq catppuccin-flavor 'mocha) ; or 'latte, 'macchiato, or 'mocha
@@ -22,10 +22,10 @@
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15) ; editor font
       doom-unicode-font (font-spec :family "Noto Color Emoji"))
 
-;; Set custom styles
+;; Custom styles for all themes
 (custom-set-faces!
   ;; '(font-lock-keyword-face :slant italic :weight medium)
-  '(font-lock-comment-face :slant italic :weight medium))
+  '(font-lock-comment-face :slant italic :weight normal))
 ;; '(italic :slant italic :weight medium))
 ;; '(tree-sitter-hl-face:property :slant italic :weight medium)
 ;; '(line-number-current-line :slant italic :weight medium))
@@ -43,11 +43,11 @@
 (add-to-list 'default-frame-alist '(alpha-background . 97)) ; for all new frames henceforth
 
 ;; Disable window decoation if using graphical session
-;; (if (display-graphic-p)
-;;   (setq default-frame-alist '((undecorated . t))) ; for current frame
-;;   (add-to-list 'default-frame-alist '(undecorated . t))) ; for all new frames henceforth
-;; (add-to-list 'default-frame-alist '(drag-internal-border . 1))    ; enable drag and resize for internal borders
-;; (add-to-list 'default-frame-alist '(internal-border-width . 1))   ; set internal border size
+(if (display-graphic-p)
+  (setq default-frame-alist '((undecorated . t))) ; for current frame
+  (add-to-list 'default-frame-alist '(undecorated . t))) ; for all new frames henceforth
+(add-to-list 'default-frame-alist '(drag-internal-border . 1))    ; enable drag and resize for internal borders
+(add-to-list 'default-frame-alist '(internal-border-width . 1))   ; set internal border size
 
 ;;; VIM RELATED ;;;
 (setq evil-want-fine-undo 'fine   ; vim like undo
@@ -176,13 +176,6 @@
 
 ;;; MOOD-LINE ;;;
 ;; (mood-line-mode) ; enable on startup
-
-;;; ADWAITA-DARK ;;;
-(eval-after-load 'neotree #'adwaita-dark-theme-neotree-configuration-enable)
-(adwaita-dark-theme-arrow-fringe-bmp-enable)
-(eval-after-load 'diff-hl #'adwaita-dark-theme-diff-hl-fringe-bmp-enable)
-(eval-after-load 'flycheck #'adwaita-dark-theme-flycheck-fringe-bmp-enable)
-(eval-after-load 'flymake #'adwaita-dark-theme-flymake-fringe-bmp-enable)
 
 ;;; LOAD USER DEFINED KEYBINDINGS ;;;
 (load! "keybindings")
