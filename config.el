@@ -3,8 +3,19 @@
 (setq confirm-kill-emacs nil)                ; disable quit prompt
 
 ;;; THEME ;;;
-;; (setq doom-theme 'catppuccin)        ; set external theme
-(setq doom-theme 'doom-dracula)      ; set doom theme
+(setq doom-theme 'catppuccin)        ; set external theme
+;; (setq doom-theme 'doom-tokyo-night)      ; set doom theme
+
+;; Custom styles for catppuccin theme
+(custom-theme-set-faces! 'catppuccin
+  '(lsp-face-highlight-textual :background "#45475a" :weight bold)
+  '(lsp-face-highlight-read  :inherit 'lsp-face-highlight-textual)
+  '(lsp-face-highlight-write :inherit 'lsp-face-highlight-textual))
+
+;; Catppuccin settings
+(setq catppuccin-flavor 'mocha ; or 'latte, 'macchiato, or 'mocha
+      catppuccin-highlight-matches t
+      catppuccin-italic-comments t)
 
 ;; Custom styles for adwaita-dark theme
 ;; (custom-theme-set-faces! 'adwaita-dark
@@ -14,18 +25,14 @@
 ;;   ;; '(mode-line :background "#303030" :foreground "fg" :box (:line-width 3 :color "#303030")))
 ;;   '(mode-line :background "#303030"))
 
-;; Catppuccin flavour
-;; (setq catppuccin-flavor 'mocha) ; or 'latte, 'macchiato, or 'mocha
-
 ;;; FONT ;;;
 ;; Set font family
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15) ; editor font
-      doom-unicode-font (font-spec :family "Noto Color Emoji"))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15)) ; editor font
 
 ;; Custom styles for all themes
-(custom-set-faces!
+;; (custom-set-faces!
   ;; '(font-lock-keyword-face :slant italic :weight medium)
-  '(font-lock-comment-face :slant italic :weight normal))
+  ;; '(font-lock-comment-face :slant italic :weight normal))
 ;; '(italic :slant italic :weight medium))
 ;; '(tree-sitter-hl-face:property :slant italic :weight medium)
 ;; '(line-number-current-line :slant italic :weight medium))
@@ -130,7 +137,8 @@
 (setq whitespace-style '(face trailing))   ; set style
 
 ;;; INDENT GUIDES ;;;
-(setq highlight-indent-guides-responsive 'top)   ; display different color for current context
+(setq highlight-indent-guides-auto-enabled nil   ; fix color issues
+      highlight-indent-guides-responsive 'top)   ; display different color for current context
 
 ;;; TERMINAL ;;;
 (setq shell-file-name "/bin/fish"

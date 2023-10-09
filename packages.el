@@ -56,7 +56,7 @@
 (package! evil-terminal-cursor-changer)
 
 ;; Catppuccin theme
-;; (package! catppuccin-theme)
+(package! catppuccin-theme)
 
 ;; Zoom active splits
 (package! zoom-window)
