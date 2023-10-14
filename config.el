@@ -3,36 +3,36 @@
 (setq confirm-kill-emacs nil)                ; disable quit prompt
 
 ;;; THEME ;;;
-(setq doom-theme 'catppuccin)        ; set external theme
+(setq doom-theme 'adwaita-dark)        ; set external theme
 ;; (setq doom-theme 'doom-tokyo-night)      ; set doom theme
 
 ;; Custom styles for catppuccin theme
-(custom-theme-set-faces! 'catppuccin
-  '(lsp-face-highlight-textual :background "#45475a" :weight bold)
-  '(lsp-face-highlight-read  :inherit 'lsp-face-highlight-textual)
-  '(lsp-face-highlight-write :inherit 'lsp-face-highlight-textual))
+;; (custom-theme-set-faces! 'catppuccin
+;;   '(lsp-face-highlight-textual :background "#45475a" :weight bold)
+;;   '(lsp-face-highlight-read  :inherit 'lsp-face-highlight-textual)
+;;   '(lsp-face-highlight-write :inherit 'lsp-face-highlight-textual))
 
 ;; Catppuccin settings
-(setq catppuccin-flavor 'mocha ; or 'latte, 'macchiato, or 'mocha
-      catppuccin-highlight-matches t
-      catppuccin-italic-comments t)
+;; (setq catppuccin-flavor 'mocha ; or 'latte, 'macchiato, or 'mocha
+;;       catppuccin-highlight-matches t
+;;       catppuccin-italic-comments t)
 
 ;; Custom styles for adwaita-dark theme
-;; (custom-theme-set-faces! 'adwaita-dark
-;;   '(font-lock-keyword-face :foreground "#ffa348")
-;;   '(show-paren-match :foreground "#ffa348" :weight ultra-bold)
-;;   '(region :background "#21364A")
-;;   ;; '(mode-line :background "#303030" :foreground "fg" :box (:line-width 3 :color "#303030")))
-;;   '(mode-line :background "#303030"))
+(custom-theme-set-faces! 'adwaita-dark
+  '(font-lock-keyword-face :foreground "#ffa348")
+  '(show-paren-match :foreground "#ffa348" :weight ultra-bold)
+  '(region :background "#21364A")
+  ;; '(mode-line :background "#303030" :foreground "fg" :box (:line-width 3 :color "#303030")))
+  '(mode-line :background "#303030"))
 
 ;;; FONT ;;;
 ;; Set font family
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15)) ; editor font
 
 ;; Custom styles for all themes
-;; (custom-set-faces!
+(custom-set-faces!
   ;; '(font-lock-keyword-face :slant italic :weight medium)
-  ;; '(font-lock-comment-face :slant italic :weight normal))
+  '(font-lock-comment-face :slant italic :weight normal))
 ;; '(italic :slant italic :weight medium))
 ;; '(tree-sitter-hl-face:property :slant italic :weight medium)
 ;; '(line-number-current-line :slant italic :weight medium))
@@ -136,9 +136,10 @@
 (global-whitespace-mode +1)                ; enable globally
 (setq whitespace-style '(face trailing))   ; set style
 
-;;; INDENT GUIDES ;;;
-(setq highlight-indent-guides-auto-enabled nil   ; fix color issues
-      highlight-indent-guides-responsive 'top)   ; display different color for current context
+;;; HIGHLIGHT INDENT GUIDES ;;;
+;; (setq highlight-indent-guides-auto-enabled nil)   ; fix color issues in catppuccin
+(setq highlight-indent-guides-responsive 'top)   ; display different color for current context
+(setq highlight-indent-guides-method 'column)
 
 ;;; TERMINAL ;;;
 (setq shell-file-name "/bin/fish"
@@ -184,6 +185,10 @@
 
 ;;; MOOD-LINE ;;;
 ;; (mood-line-mode) ; enable on startup
+
+;;; INDENT GUIDE ;;;
+;; (indent-guide-global-mode)
+;; (setq indent-guide-recursive t)
 
 ;;; LOAD USER DEFINED KEYBINDINGS ;;;
 (load! "keybindings")
