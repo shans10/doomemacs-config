@@ -3,8 +3,8 @@
 (setq confirm-kill-emacs nil)                ; disable quit prompt
 
 ;;; THEME ;;;
-(setq doom-theme 'adwaita-dark)        ; set external theme
-;; (setq doom-theme 'doom-tokyo-night)      ; set doom theme
+(setq doom-theme 'catppuccin)        ; set external theme
+;; (setq doom-theme 'doom-one)      ; set doom theme
 
 ;; Custom styles for catppuccin theme
 ;; (custom-theme-set-faces! 'catppuccin
@@ -18,16 +18,16 @@
 ;;       catppuccin-italic-comments t)
 
 ;; Custom styles for adwaita-dark theme
-(custom-theme-set-faces! 'adwaita-dark
-  '(font-lock-keyword-face :foreground "#ffa348")
-  '(show-paren-match :foreground "#ffa348" :weight ultra-bold)
-  '(region :background "#21364A")
-  ;; '(mode-line :background "#303030" :foreground "fg" :box (:line-width 3 :color "#303030")))
-  '(mode-line :background "#303030"))
+;; (custom-theme-set-faces! 'adwaita-dark
+;;   '(font-lock-keyword-face :foreground "#ffa348")
+;;   '(show-paren-match :foreground "#ffa348" :weight ultra-bold)
+;;   '(region :background "#21364A")
+;;   ;; '(mode-line :background "#303030" :foreground "fg" :box (:line-width 3 :color "#303030")))
+;;   '(mode-line :background "#303030"))
 
 ;;; FONT ;;;
 ;; Set font family
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15)) ; editor font
+(setq doom-font (font-spec :family "JetBrainsMono NF" :size 15)) ; editor font
 
 ;; Custom styles for all themes
 (custom-set-faces!
