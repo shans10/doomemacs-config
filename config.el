@@ -7,13 +7,13 @@
 ;; (setq doom-theme 'doom-one)      ; set doom theme
 
 ;; Custom styles for catppuccin theme
-;; (custom-theme-set-faces! 'catppuccin
-;;   '(lsp-face-highlight-textual :background "#45475a" :weight bold)
-;;   '(lsp-face-highlight-read  :inherit 'lsp-face-highlight-textual)
-;;   '(lsp-face-highlight-write :inherit 'lsp-face-highlight-textual))
+(custom-theme-set-faces! 'catppuccin
+  '(lsp-face-highlight-textual :background "#45475a" :foreground "#cdd6f4" :weight bold)
+  '(lsp-face-highlight-read  :inherit 'lsp-face-highlight-textual)
+  '(lsp-face-highlight-write :inherit 'lsp-face-highlight-textual))
 
 ;; Catppuccin settings
-;; (setq catppuccin-flavor 'mocha ; or 'latte, 'macchiato, or 'mocha
+;; (setq catppuccin-flavor 'mocha
 ;;       catppuccin-highlight-matches t
 ;;       catppuccin-italic-comments t)
 
