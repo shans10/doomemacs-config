@@ -3,14 +3,14 @@
 (setq confirm-kill-emacs nil)                ; disable quit prompt
 
 ;;; THEME ;;;
-(setq doom-theme 'catppuccin)        ; set external theme
-;; (setq doom-theme 'doom-one)      ; set doom theme
+(setq doom-theme 'adwaita-dark)        ; set external theme
+;; (setq doom-theme 'doom-monokai-spectrum)      ; set doom theme
 
 ;; Custom styles for catppuccin theme
-(custom-theme-set-faces! 'catppuccin
-  '(lsp-face-highlight-textual :background "#45475a" :foreground "#cdd6f4" :weight bold)
-  '(lsp-face-highlight-read  :inherit 'lsp-face-highlight-textual)
-  '(lsp-face-highlight-write :inherit 'lsp-face-highlight-textual))
+;; (custom-theme-set-faces! 'catppuccin
+;;   '(lsp-face-highlight-textual :background "#45475a" :foreground "#cdd6f4" :weight bold)
+;;   '(lsp-face-highlight-read  :inherit 'lsp-face-highlight-textual)
+;;   '(lsp-face-highlight-write :inherit 'lsp-face-highlight-textual))
 
 ;; Catppuccin settings
 ;; (setq catppuccin-flavor 'mocha
@@ -18,12 +18,14 @@
 ;;       catppuccin-italic-comments t)
 
 ;; Custom styles for adwaita-dark theme
-;; (custom-theme-set-faces! 'adwaita-dark
+(custom-theme-set-faces! 'adwaita-dark
 ;;   '(font-lock-keyword-face :foreground "#ffa348")
 ;;   '(show-paren-match :foreground "#ffa348" :weight ultra-bold)
-;;   '(region :background "#21364A")
+  ;; '(region :background "#21364A")
 ;;   ;; '(mode-line :background "#303030" :foreground "fg" :box (:line-width 3 :color "#303030")))
 ;;   '(mode-line :background "#303030"))
+  '(line-number-current-line :slant italic :weight bold)
+  '(doom-modeline-evil-insert-state :foreground "#FFA348" :weight normal))
 
 ;;; FONT ;;;
 ;; Set font family
@@ -117,8 +119,8 @@
 ;; (doom-themes-neotree-config)
 (after! neotree
   (setq neo-smart-open t
-        neo-window-fixed-size nil
-        doom-themes-neotree-file-icons t))    ; show filetype icons
+        neo-window-fixed-size nil))
+(setq neo-theme (if (display-graphic-p) 'arrow))
 
 ;;; MODELINE ;;;
 (setq doom-modeline-major-mode-icon t)            ; show major mode icon in doom modeline(filetype icon)
