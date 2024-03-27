@@ -3,8 +3,13 @@
 (setq confirm-kill-emacs nil)                ; disable quit prompt
 
 ;;; THEME ;;;
-(setq doom-theme 'adwaita-dark)        ; set external theme
-;; (setq doom-theme 'doom-monokai-spectrum)      ; set doom theme
+;; (setq doom-theme 'catppuccin)        ; set external theme
+(setq doom-theme 'doom-dracula)      ; set doom theme
+
+;; Catppuccin settings
+;; (setq catppuccin-flavor 'macchiato
+;;       catppuccin-highlight-matches t
+;;       catppuccin-italic-comments t)
 
 ;; Custom styles for catppuccin theme
 ;; (custom-theme-set-faces! 'catppuccin
@@ -12,20 +17,15 @@
 ;;   '(lsp-face-highlight-read  :inherit 'lsp-face-highlight-textual)
 ;;   '(lsp-face-highlight-write :inherit 'lsp-face-highlight-textual))
 
-;; Catppuccin settings
-;; (setq catppuccin-flavor 'mocha
-;;       catppuccin-highlight-matches t
-;;       catppuccin-italic-comments t)
-
 ;; Custom styles for adwaita-dark theme
-(custom-theme-set-faces! 'adwaita-dark
+;; (custom-theme-set-faces! 'adwaita-dark
 ;;   '(font-lock-keyword-face :foreground "#ffa348")
 ;;   '(show-paren-match :foreground "#ffa348" :weight ultra-bold)
   ;; '(region :background "#21364A")
 ;;   ;; '(mode-line :background "#303030" :foreground "fg" :box (:line-width 3 :color "#303030")))
 ;;   '(mode-line :background "#303030"))
-  '(line-number-current-line :slant italic :weight bold)
-  '(doom-modeline-evil-insert-state :foreground "#FFA348" :weight normal))
+  ;; '(line-number-current-line :slant italic :weight bold)
+  ;; '(doom-modeline-evil-insert-state :foreground "#FFA348" :weight normal))
 
 ;;; FONT ;;;
 ;; Set font family
@@ -66,7 +66,7 @@
 (setq scroll-step 1)
 (setq scroll-margin 8)
 
-;; Add space from both sides inside braces
+;; Function to add space from both sides inside braces
 (defun my/c-mode-insert-space (arg)
   (interactive "*P")
   (let ((prev (char-before))
@@ -88,6 +88,7 @@
         (delete-char 1))
     (backward-delete-char-untabify arg killp)))
 
+;; Add space between brackets when 'SpaceBar' is pressed
 (add-hook 'c-mode-common-hook
           (lambda ()
             (local-set-key " " 'my/c-mode-insert-space)
@@ -121,6 +122,24 @@
   (setq neo-smart-open t
         neo-window-fixed-size nil))
 (setq neo-theme (if (display-graphic-p) 'arrow))
+
+;; Function to autoclose neotree on file open
+(defun neo-open-file-hide (full-path &optional arg)
+  "Open a file node and hides tree."
+  (neo-global--select-mru-window arg)
+  (find-file full-path)
+  (neotree-hide))
+
+(defun neotree-enter-hide (&optional arg)
+  "Enters file and hides neotree directly"
+  (interactive "P")
+  (neo-buffer--execute arg 'neo-open-file-hide 'neo-open-dir))
+
+;; Close neotree when 'Enter' is pressed to open a file
+(add-hook
+ 'neotree-mode-hook
+ (lambda ()
+   (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter-hide)))
 
 ;;; MODELINE ;;;
 (setq doom-modeline-major-mode-icon t)            ; show major mode icon in doom modeline(filetype icon)

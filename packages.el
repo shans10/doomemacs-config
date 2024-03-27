@@ -68,7 +68,7 @@
 ;; (package! find-file-in-project)
 
 ;; Adwaita dark theme
-(package! adwaita-dark-theme)
+;; (package! adwaita-dark-theme)
 
 ;; Indent guide
 ;; (package! indent-guide)
