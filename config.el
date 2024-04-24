@@ -3,11 +3,11 @@
 (setq confirm-kill-emacs nil)                ; disable quit prompt
 
 ;;; THEME ;;;
-;; (setq doom-theme 'catppuccin)        ; set external theme
-(setq doom-theme 'doom-dracula)      ; set doom theme
+;; (setq doom-theme 'adwaita-dark)        ; set external theme
+;; (setq doom-theme 'doom-nord-aurora)      ; set doom theme
 
 ;; Catppuccin settings
-;; (setq catppuccin-flavor 'macchiato
+;; (setq catppuccin-flavor 'mocha
 ;;       catppuccin-highlight-matches t
 ;;       catppuccin-italic-comments t)
 
@@ -21,11 +21,9 @@
 ;; (custom-theme-set-faces! 'adwaita-dark
 ;;   '(font-lock-keyword-face :foreground "#ffa348")
 ;;   '(show-paren-match :foreground "#ffa348" :weight ultra-bold)
-  ;; '(region :background "#21364A")
-;;   ;; '(mode-line :background "#303030" :foreground "fg" :box (:line-width 3 :color "#303030")))
-;;   '(mode-line :background "#303030"))
-  ;; '(line-number-current-line :slant italic :weight bold)
-  ;; '(doom-modeline-evil-insert-state :foreground "#FFA348" :weight normal))
+;;   '(region :background "#21364A")
+;;   '(line-number-current-line :slant italic :weight bold)
+;;   '(doom-modeline-evil-insert-state :foreground "#FFA348" :weight normal))
 
 ;;; FONT ;;;
 ;; Set font family
@@ -48,15 +46,15 @@
 
 ;; Transparency
 ;; (doom/set-frame-opacity 97)   ; add transparency
-(set-frame-parameter nil 'alpha-background 97) ; for current frame
-(add-to-list 'default-frame-alist '(alpha-background . 97)) ; for all new frames henceforth
+;; (set-frame-parameter nil 'alpha-background 97) ; for current frame
+;; (add-to-list 'default-frame-alist '(alpha-background . 97)) ; for all new frames henceforth
 
 ;; Disable window decoation if using graphical session
-(if (display-graphic-p)
-  (setq default-frame-alist '((undecorated . t))) ; for current frame
-  (add-to-list 'default-frame-alist '(undecorated . t))) ; for all new frames henceforth
-(add-to-list 'default-frame-alist '(drag-internal-border . 1))    ; enable drag and resize for internal borders
-(add-to-list 'default-frame-alist '(internal-border-width . 1))   ; set internal border size
+;; (if (display-graphic-p)
+;;   (setq default-frame-alist '((undecorated . t))) ; for current frame
+;;   (add-to-list 'default-frame-alist '(undecorated . t))) ; for all new frames henceforth
+;; (add-to-list 'default-frame-alist '(drag-internal-border . 1))    ; enable drag and resize for internal borders
+;; (add-to-list 'default-frame-alist '(internal-border-width . 1))   ; set internal border size
 
 ;;; VIM RELATED ;;;
 (setq evil-want-fine-undo 'fine   ; vim like undo
@@ -117,11 +115,9 @@
 (setq-hook! 'js-mode-hook +format-with-lsp nil)
 
 ;;; NEOTREE ;;;
-;; (doom-themes-neotree-config)
 (after! neotree
   (setq neo-smart-open t
         neo-window-fixed-size nil))
-(setq neo-theme (if (display-graphic-p) 'arrow))
 
 ;; Function to autoclose neotree on file open
 (defun neo-open-file-hide (full-path &optional arg)
@@ -146,12 +142,6 @@
 (setq lsp-modeline-code-actions-enable nil)       ; disable code actions in doom modeline
 ;; (setq doom-modeline-modal-icon nil)               ; disable mode icon and show mode text
 ;; (setq doom-modeline-indent-info t)                ; show indent level
-
-;;; CENTAUR TABS ;;;
-;; (setq centaur-tabs-set-bar 'left               ; set indicator style
-;;       centaur-tabs-gray-out-icons 'buffer
-;;       centaur-tabs-height 15                   ; set tab height
-;;       centaur-tabs-close-button "")          ; set close button style
 
 ;;; WHITESPACE MODE ;;;
 (global-whitespace-mode +1)                ; enable globally
@@ -182,19 +172,6 @@
   (interactive)
   (start-process "" nil "alacritty"))
 
-;;; BREADCRUMBS ;;;
-;; (setq lsp-headerline-breadcrumb-enable t)
-;; (setq lsp-headerline-breadcrumb-segments '(symbols))
-;; (setq lsp-headerline-breadcrumb-icons-enable t)
-
-;;; VERTICO POSTFRAME ;;
-;; Enable childframe only in gui
-;; (use-package! vertico-posframe
-;;   :when (display-graphic-p)
-;;   :hook (vertico-mode . vertico-posframe-mode)
-;;   :config
-;;   (add-hook 'doom-after-reload-hook #'posframe-delete-all))
-
 ;;; TERMINAL CURSOR ;;;
 ;; Change cursor in terminal emacs based on mode
 (unless (display-graphic-p)
@@ -203,9 +180,6 @@
 
 ;;; ZOOM WINDOW ;;;
 (setq zoom-window-mode-line-color nil) ; disable modeline color
-
-;;; MOOD-LINE ;;;
-;; (mood-line-mode) ; enable on startup
 
 ;;; INDENT GUIDE ;;;
 ;; (indent-guide-global-mode)
