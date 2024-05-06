@@ -12,6 +12,6 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 - Install User Settings
 
 ```sh
-git clone https://github.com/shans10/doom-emacs-user_config.git ~/.config/doom
+git clone https://github.com/shans10/doomemacs-config.git ~/.config/doom
 ~/.emacs.d/bin/doom sync
 ```
