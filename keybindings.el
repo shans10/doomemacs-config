@@ -43,9 +43,9 @@
 
 ;; Terminal
 ; Open external terminal in CWD
-(map! :leader
-      :desc "Open terminal here"
-      "t ." #'term-here)
+;; (map! :leader
+;;       :desc "Open terminal here"
+;;       "t ." #'term-here)
 ; Built in terminals
 (map! :leader
       :desc "Eshell popup" "t e" #'+eshell/toggle
@@ -87,15 +87,15 @@
   (kbd "; e") 'epa-dired-do-encrypt)
 
 ;; Centaur tabs
-(map! :leader
-      :desc "Centaur tabs global" "t c" #'centaur-tabs-mode
-      :desc "Centaur tabs local" "t C" #'centaur-tabs-local-mode)
+;; (map! :leader
+;;       :desc "Centaur tabs global" "t c" #'centaur-tabs-mode
+;;       :desc "Centaur tabs local" "t C" #'centaur-tabs-local-mode)
 ; Evil mode
-(evil-define-key 'normal centaur-tabs-mode-map
-  (kbd "g <right>") 'centaur-tabs-forward        ; default Doom binding is 'g t'
-  (kbd "g <left>")  'centaur-tabs-backward       ; default Doom binding is 'g T'
-  (kbd "g <down>")  'centaur-tabs-forward-group
-  (kbd "g <up>")    'centaur-tabs-backward-group)
+;; (evil-define-key 'normal centaur-tabs-mode-map
+;;   (kbd "g <right>") 'centaur-tabs-forward        ; default Doom binding is 'g t'
+;;   (kbd "g <left>")  'centaur-tabs-backward       ; default Doom binding is 'g T'
+;;   (kbd "g <down>")  'centaur-tabs-forward-group
+;;   (kbd "g <up>")    'centaur-tabs-backward-group)
 
 ;; ibuffer evil mode
 (evil-define-key 'normal ibuffer-mode-map

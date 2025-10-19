@@ -3,42 +3,22 @@
 (setq confirm-kill-emacs nil)                ; disable quit prompt
 
 ;;; THEME ;;;
-;; (setq doom-theme 'adwaita-dark)        ; set external theme
-;; (setq doom-theme 'doom-nord-aurora)      ; set doom theme
-
-;; Catppuccin settings
-;; (setq catppuccin-flavor 'mocha
-;;       catppuccin-highlight-matches t
-;;       catppuccin-italic-comments t)
-
-;; Custom styles for catppuccin theme
-;; (custom-theme-set-faces! 'catppuccin
-;;   '(lsp-face-highlight-textual :background "#45475a" :foreground "#cdd6f4" :weight bold)
-;;   '(lsp-face-highlight-read  :inherit 'lsp-face-highlight-textual)
-;;   '(lsp-face-highlight-write :inherit 'lsp-face-highlight-textual))
-
-;; Custom styles for adwaita-dark theme
-;; (custom-theme-set-faces! 'adwaita-dark
-;;   '(font-lock-keyword-face :foreground "#ffa348")
-;;   '(show-paren-match :foreground "#ffa348" :weight ultra-bold)
-;;   '(region :background "#21364A")
-;;   '(line-number-current-line :slant italic :weight bold)
-;;   '(doom-modeline-evil-insert-state :foreground "#FFA348" :weight normal))
+(setq doom-theme 'doom-one)      ; set doom theme
 
 ;;; FONT ;;;
 ;; Set font family
-(setq doom-font (font-spec :family "JetBrainsMono NF" :size 15)) ; editor font
+(setq doom-font (font-spec :family "Adwaita Mono" :size 15)) ; editor font
 
 ;; Custom styles for all themes
-(custom-set-faces!
+;; (custom-set-faces!
   ;; '(font-lock-keyword-face :slant italic :weight medium)
-  '(font-lock-comment-face :slant italic :weight normal))
+  ;; '(font-lock-comment-face :slant italic :weight normal))
 ;; '(italic :slant italic :weight medium))
 ;; '(tree-sitter-hl-face:property :slant italic :weight medium)
 ;; '(line-number-current-line :slant italic :weight medium))
 
 ;;; WINDOW ;;;
-;; (add-to-list 'default-frame-alist '(fullscreen . maximized))   ; open emacs maximized
+(add-to-list 'default-frame-alist '(fullscreen . maximized))   ; open emacs maximized
 
 ;; Automatically switch to newly created splits
 (setq evil-vsplit-window-right t
@@ -49,7 +29,7 @@
 ;; (set-frame-parameter nil 'alpha-background 97) ; for current frame
 ;; (add-to-list 'default-frame-alist '(alpha-background . 97)) ; for all new frames henceforth
 
-;; Disable window decoation if using graphical session
+;; Disable window decoration if using graphical session
 ;; (if (display-graphic-p)
 ;;   (setq default-frame-alist '((undecorated . t))) ; for current frame
 ;;   (add-to-list 'default-frame-alist '(undecorated . t))) ; for all new frames henceforth
@@ -138,7 +118,7 @@
    (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter-hide)))
 
 ;;; MODELINE ;;;
-(setq doom-modeline-major-mode-icon t)            ; show major mode icon in doom modeline(filetype icon)
+;; (setq doom-modeline-major-mode-icon t)            ; show major mode icon in doom modeline(filetype icon)
 (setq lsp-modeline-code-actions-enable nil)       ; disable code actions in doom modeline
 ;; (setq doom-modeline-modal-icon nil)               ; disable mode icon and show mode text
 ;; (setq doom-modeline-indent-info t)                ; show indent level
@@ -147,10 +127,10 @@
 (global-whitespace-mode +1)                ; enable globally
 (setq whitespace-style '(face trailing))   ; set style
 
-;;; HIGHLIGHT INDENT GUIDES ;;;
+;;; INDENT BARS ;;;
 ;; (setq highlight-indent-guides-auto-enabled nil)   ; fix color issues in catppuccin
-(setq highlight-indent-guides-responsive 'top)   ; display different color for current context
-(setq highlight-indent-guides-method 'column)
+;; (setq highlight-indent-guides-responsive 'top)   ; display different color for current context
+;; (setq highlight-indent-guides-method 'column)
 
 ;;; TERMINAL ;;;
 (setq shell-file-name "/bin/fish"
@@ -161,29 +141,6 @@
       eshell-scroll-to-bottom-on-input t
       eshell-destroy-buffer-when-process-dies t
       eshell-visual-commands'("bash" "fish" "htop" "ssh" "top" "zsh"))
-
-;;; TREESITTER ;;;
-(global-tree-sitter-mode)
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode) ; enable tree-sitter highlights
-
-;;; EXTERNAL TERMINAL ;;;
-;; Open specified terminal in current working directory
-(defun term-here ()
-  (interactive)
-  (start-process "" nil "alacritty"))
-
-;;; TERMINAL CURSOR ;;;
-;; Change cursor in terminal emacs based on mode
-(unless (display-graphic-p)
-  (require 'evil-terminal-cursor-changer)
-  (evil-terminal-cursor-changer-activate)) ; or (etcc-on)
-
-;;; ZOOM WINDOW ;;;
-(setq zoom-window-mode-line-color nil) ; disable modeline color
-
-;;; INDENT GUIDE ;;;
-;; (indent-guide-global-mode)
-;; (setq indent-guide-recursive t)
 
 ;;; LOAD USER DEFINED KEYBINDINGS ;;;
 (load! "keybindings")

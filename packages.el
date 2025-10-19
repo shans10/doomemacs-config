@@ -49,14 +49,8 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-;; Manually install vertico childframe
-;; (package! vertico-posframe)
-
 ;; Terminal emacs cursor changer
-(package! evil-terminal-cursor-changer)
-
-;; Catppuccin theme
-;; (package! catppuccin-theme)
+;; (package! evil-terminal-cursor-changer)
 
 ;; Zoom active splits
 (package! zoom-window)
@@ -66,9 +60,3 @@
 
 ;; Find file recursively in current directory
 ;; (package! find-file-in-project)
-
-;; Adwaita dark theme
-;; (package! adwaita-dark-theme)
-
-;; Indent guide
-;; (package! indent-guide)
