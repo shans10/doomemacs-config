@@ -1,6 +1,11 @@
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+
 ;;; UI ;;;
 (setq display-line-numbers-type 'relative)   ; set line number style
 (setq confirm-kill-emacs nil)                ; disable quit prompt
+
+;; Custom splash image
+(setq fancy-splash-image (file-name-concat doom-user-dir "splash.png"))
 
 ;;; THEME ;;;
 (setq doom-theme 'doom-one)      ; set doom theme
@@ -41,8 +46,8 @@
       evil-cross-lines t)         ; vim whichwrap
 
 ;; Scrolloff
-(setq scroll-step 1)
-(setq scroll-margin 8)
+;; (setq scroll-step 1)
+;; (setq scroll-margin 8)
 
 ;; Function to add space from both sides inside braces
 (defun my/c-mode-insert-space (arg)
@@ -86,10 +91,18 @@
 (setq-default flycheck-indication-mode 'left-fringe)   ; Move flycheck to left margin
 
 ;;; LSP ;;;
-(setq lsp-ui-doc-enable nil                   ; disable doc hover information unless key pressed
-      lsp-ui-sideline-show-code-actions nil   ; disable code action hints in sideline
-      lsp-eldoc-enable-hover nil              ; disable doc below modeline on hover
-      lsp-signature-auto-activate nil)        ; disable function signature help popup
+;; Disable invasive lsp-mode features
+(after! lsp-mode
+  (setq lsp-enable-symbol-highlighting nil
+        ;; If an LSP server isn't present when I start a prog-mode buffer, you
+        ;; don't need to tell me. I know. On some machines I don't care to have
+        ;; a whole development environment for some ecosystems.
+        lsp-enable-suggest-server-download nil))
+(after! lsp-ui
+  (setq lsp-ui-sideline-enable nil          ; no more useful than flycheck
+        lsp-ui-doc-enable nil               ; redundant with K
+      	lsp-eldoc-enable-hover nil          ; disable doc below modeline on hover
+      	lsp-signature-auto-activate nil))   ; disable function signature help popup
 
 ;; Formatting
 (setq-hook! 'js-mode-hook +format-with-lsp nil)
@@ -119,7 +132,8 @@
 
 ;;; MODELINE ;;;
 ;; (setq doom-modeline-major-mode-icon t)            ; show major mode icon in doom modeline(filetype icon)
-(setq lsp-modeline-code-actions-enable nil)       ; disable code actions in doom modeline
+(setq lsp-modeline-code-actions-enable nil       ; disable code actions in doom modeline
+	  doom-modeline-check-simple-format t)
 ;; (setq doom-modeline-modal-icon nil)               ; disable mode icon and show mode text
 ;; (setq doom-modeline-indent-info t)                ; show indent level
 

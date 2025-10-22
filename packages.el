@@ -49,14 +49,5 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-;; Terminal emacs cursor changer
-;; (package! evil-terminal-cursor-changer)
-
 ;; Zoom active splits
-(package! zoom-window)
-
-;; Asynchronous fuzzy finder
-(package! affe)
-
-;; Find file recursively in current directory
-;; (package! find-file-in-project)
+;; (package! zoom-window)

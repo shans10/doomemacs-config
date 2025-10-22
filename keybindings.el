@@ -17,26 +17,6 @@
       :desc "Kill this buffer"
       "b D" #'kill-this-buffer)
 
-;; Files
-; Find file recursively in cwd
-;; (map! :leader
-;;       :desc "Find files in CWD"
-;;       "f C-d" #'find-file-in-current-directory)
-; Find file recursively in project
-;; (map! :leader
-;;       :desc "Find files in project"
-;;       "f C-p" #'find-file-in-project)
-; Affe find file recursively
-(map! :leader
-      :desc "Affe find file"
-      "f a" #'affe-find)
-
-;; Search
-; Affe grep
-(map! :leader
-      :desc "Affe grep"
-      "s a" #'affe-grep)
-
 ;; Neotree
 (map! :leader
       :desc "Neotree" "t n" #'neotree-toggle)
@@ -52,9 +32,9 @@
       :desc "Vterm popup" "t t" #'+vterm/toggle)
 
 ;; Zoom active window
-(map! :leader
-      (:desc "Zoom window"
-             "w z" #'zoom-window-zoom))
+;; (map! :leader
+;;       (:desc "Zoom window"
+;;              "w z" #'zoom-window-zoom))
 
 ;; Dired
 ; Evil mode
