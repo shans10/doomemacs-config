@@ -4,9 +4,7 @@
 (setq display-line-numbers-type 'relative)   ; set line number style
 (setq confirm-kill-emacs nil)                ; disable quit prompt
 (setq indent-tabs-mode nil)                  ; use spaces for Tab indentation
-
-;; Custom splash image
-(setq fancy-splash-image (file-name-concat doom-user-dir "splash.png"))
+(setq-default markdown-hide-markup t)        ; hide markdown markup syntax
 
 ;;; THEME ;;;
 (setq doom-theme 'doom-one)      ; set doom theme
@@ -14,9 +12,6 @@
 ;;; FONT ;;;
 ;; Set font family
 (setq doom-font (font-spec :family "Monaspace Neon Frozen" :size 15)) ; editor font
-
-;;; WINDOW ;;;
-(add-to-list 'default-frame-alist '(fullscreen . maximized))   ; open emacs maximized
 
 ;; Automatically switch to newly created splits
 (setq evil-vsplit-window-right t
@@ -117,6 +112,10 @@
 
 ;; Add the function to the eshell-mode-hook to run when Eshell starts
 (add-hook 'eshell-mode-hook #'my-eshell-remove-pcomplete)
+
+;; Kdl file support
+(use-package! kdl-mode
+  :mode "\\.kdl\\'")
 
 ;;; LOAD USER DEFINED KEYBINDINGS ;;;
 (load! "keybindings")

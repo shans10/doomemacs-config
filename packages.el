@@ -51,3 +51,6 @@
 
 ;; Zoom active splits
 ;; (package! zoom-window)
+
+;; Kdl file support
+(package! kdl-mode)
