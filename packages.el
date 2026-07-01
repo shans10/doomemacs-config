@@ -54,3 +54,6 @@
 
 ;; Kdl file support
 (package! kdl-mode)
+
+;; Catppuccin theme
+(package! catppuccin-theme)

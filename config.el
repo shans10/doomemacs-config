@@ -7,7 +7,8 @@
 (setq-default markdown-hide-markup t)        ; hide markdown markup syntax
 
 ;;; THEME ;;;
-(setq doom-theme 'doom-one)      ; set doom theme
+;; (setq doom-theme 'doom-one)      ; set doom theme
+(setq doom-theme 'catppuccin)
 
 ;;; FONT ;;;
 ;; Set font family
